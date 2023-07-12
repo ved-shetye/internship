@@ -1,0 +1,116 @@
+<%-include("header")-%>
+<h1><%= sheet %> :</h1>
+<div class="filterby">
+    <form action="/filterby" method="post">
+      <ul class="list-group">
+        <li class="list-group-item">
+          <input type="hidden" name="hid1" value="<%=sheetFilterOptions[0]%>">
+          <label> <input type="checkbox" id="myCheckbox1" /> <%=sheetFilterName[0]%>:  </label>
+          <input
+            name="one"
+            type="text"
+            id="myInput1"
+            placeholder="Enter text"
+            disabled
+          />
+        </li>
+        <li class="list-group-item">
+          <input type="hidden" name="hid2" value="<%=sheetFilterOptions[1]%>">
+          <label> <input type="checkbox" id="myCheckbox2" /> <%=sheetFilterName[1]%>: </label>
+          <select name="two" id="myInput2" placeholder="Enter text" disabled>
+            <option value="Gen">Gen</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+          </select>
+        </li>
+        <li class="list-group-item">
+          <input type="hidden" name="hid3" value="<%=sheetFilterOptions[2]%>">
+          <label> <input type="checkbox" id="myCheckbox3" /> <%=sheetFilterName[2]%>: </label>
+          <%if (sheet=="Assembly_Main") {%>
+            <select name="three" id="myInput3" placeholder="Enter text" disabled>
+
+              <%for (let i = 0; i <mainProducts.length; i++) {%>
+            <option value="<%=mainProducts[i]%>"><%=mainProducts[i]%></option>         
+              <%}%>
+            </select>
+          <%} else if (sheet=="Assembly_Others") { %>
+            <select name="three" id="myInput3" placeholder="Enter text" disabled>
+
+              <%for (let i = 0; i <otherProducts.length; i++) {%>
+            <option value="<%=otherProducts[i]%>"><%=otherProducts[i]%></option>         
+              <%}%>
+            </select>
+         <% } else { %>
+          <input
+          name="three"
+          type="text"
+          id="myInput3"
+          placeholder="Enter text"
+          disabled
+        />
+         <%}%>
+          
+        </li>
+        <li class="list-group-item" >
+          <input type="hidden" name="hid4" value="<%=sheetFilterOptions[3]%>">
+          <label> <input type="checkbox" id="myCheckbox4" /> <%=sheetFilterName[3]%>: </label>
+          <% if (sheet=="SMT") { %>
+            <select name="four" id="myInput4" placeholder="Enter text" disabled>
+              <%for (let i = 0; i <smtLines.length; i++) {%>
+            <option value="<%=smtLines[i]%>"><%=smtLines[i]%></option>         
+              <%}%>
+            </select>
+         <% } else {%>
+          <input
+            name="four"
+            type="text"
+            id="myInput4"
+            placeholder="Enter text"
+            disabled
+          />
+         <%}%>
+        </li>
+        <li class="list-group-item">
+          <input type="hidden" name="hid5" value="<%=sheetFilterOptions[4]%>">
+          <label> <input type="checkbox" id="myCheckbox5" /> <%=sheetFilterName[4]%>: </label>
+          <% if (sheet=="Assembly_Others") { %>
+            <select name="five" id="myInput5" placeholder="Enter text" disabled>
+              <%for (let i = 0; i <otherActivities.length; i++) {%>
+            <option value="<%=otherActivities[i]%>"><%=otherActivities[i]%></option>         
+              <%}%>
+            </select>
+         <% } else if (sheet=="SMT") { %>
+          <select name="five" id="myInput5" placeholder="Enter text" disabled>
+            <%for (let i = 0; i <smtProducts.length; i++) {%>
+          <option value="<%=smtProducts[i]%>"><%=smtProducts[i]%></option>         
+            <%}%>
+          </select>
+         <%} else {%>
+          <input
+          name="five"
+          type="text"
+          id="myInput5"
+          placeholder="Enter text"
+          disabled>
+         <% }  %>
+        </li>
+        <li class="list-group-item">
+          <input type="hidden" name="hid6" value="<%=sheetFilterOptions[5]%>">
+          <label> <input type="checkbox" id="myCheckbox6" /> <%=sheetFilterName[5]%>: </label>
+          <input
+            name="six"
+            type="text"
+            id="myInput6"
+            placeholder="Enter text"
+            disabled
+          />
+        </li>
+      </ul>
+      <input type="hidden" name="sheetNumber" value="<%=sheetNo%>">
+      <button class="submit-button" type="submit">Filter</button>
+    </form>
+  </div>
+  
+  <script src="options.js"></script>
+  <%-include("footer")-%>

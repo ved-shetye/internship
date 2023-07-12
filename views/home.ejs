@@ -1,0 +1,24 @@
+<%- include("header") -%>
+<form action="/" method="post" enctype="multipart/form-data">
+  <input type="file" name="excelsheet" />
+  <button type="submit">Upload</button>
+</form>
+
+<div class="filterby">
+  <form action="/sheetSelector" method="post">
+    <ul class="list-group">
+      <li class="list-group-item">
+        <label> Sheet: </label>
+        <select name="SHEET">
+          <option value="Assembly_Main">Assembly_Main</option>
+          <option value="Assembly_Others">Assembly_Others</option>
+          <option value="AOI">AOI</option>
+          <option value="SMT">SMT</option>
+        </select>
+      </li>
+    </ul>
+    <button class="submit-button" type="submit">Filter</button>
+  </form>
+</div>
+
+<%- include("footer") -%>
