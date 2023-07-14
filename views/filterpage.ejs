@@ -61,6 +61,13 @@
             <option value="<%=smtLines[i]%>"><%=smtLines[i]%></option>         
               <%}%>
             </select>
+          <%} else if (sheet=="Assembly_Others") { %>
+            <select name="four" id="myInput4" placeholder="Enter text" disabled>
+
+              <%for (let i = 0; i <otherTypes.length; i++) {%>
+            <option value="<%=otherTypes[i]%>"><%=otherTypes[i]%></option>         
+              <%}%>
+            </select>
          <% } else {%>
           <input
             name="four"
