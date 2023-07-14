@@ -2,6 +2,16 @@ body {
     margin:3%;
     text-align: center;
   }
+
+.logo{
+  width: 32rem;
+  height: 12rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+.logo_name{
+  font-size: 3rem;
+}
 #footer {
     position: fixed;
     bottom: 0;

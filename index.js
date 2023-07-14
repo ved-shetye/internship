@@ -121,11 +121,18 @@ app.post("/sheetSelector",(req,res)=>{
       console.log(error);
     });
 
-let mainProducts=["APFC","Danlaw","Dellorto","Dura","Emerald","IJL230B","IJL660A","Kongsberg","LEDs","S3RP","Tyco"];
-let otherProducts=["Danlaw","Dellorto","Dura","IJL230B","IJL660A","Kongsberg","S3RP","Tyco"];
+let mainProducts=["APFC","Danlaw","Dellorto","Dura","Emerald","IJL230B","IJL660A","Kongsberg","LEDs","Molbio","Neutral_4P","S3RP","Tyco"];
+let otherProducts=["APFC","Danlaw","Dellorto","Dura","IJL230B","IJL660A","Kongsberg","Molbio","S3RP","Tyco"];
+let mainActivities = ["Antenna assembly","Base Assy","Battery Assembly","Battery cover glueing","Bottom cover Gasket","Bottom cover glueing","Box build assembly","Cable Insertion","Cleaning","Conn Assembly","Conn soldering","CS1","CS2","DIP swtich sold","Display Sold","EOL Testing","Final VI","Heat stacking 1","Heat stacking 2","Heat stacking 3","IC Soldering","ICT 1","ICT 2","Lead Cutting","Metal Plate Assembly","NTC Forming","NTC Soldering","Packing","PCBA testing","Potting VI","Robotic soldering","Screwing","Singulation 2","Switch Sold","Testing","Testing 1","Testing 2","TH Soldering","TH1","TH2","Top cover Gasket","Touch up","VI"];
 let otherActivities = ["Cleaning","Routing","Singulation"];
 let smtLines = ["Line 1","Line 2","Line 3","Line 4","Line 5"];
-let smtProducts = ["APFC","Danlaw","Dellorto","Dura","Emerald","IJL660A","KA","LEDs","Neutral_4P","S3RP","Tyco"];
+let smtProducts = ["APFC","Danlaw","Dellorto","Dura","Emerald","EMERALD","IJL660A","KA","LEDs","Neutral_4P","S3RP","Tyco"];
+let otherTypes = ["AP30_11","AP30_13","AP30_25","AQ30_11","AW_30","Bajaj_ETB","BMW","BW_30","BMW K03","BMW K2X DX","BMW K2X SX","Controller series-2","Controller_144","Controller_96","D1_100","D1_32","D1_80","D3_100","D3_50","D3_62.5","D3_80","D4 Main Board","DAQ Series-2","Daughter Board","Diesel","Gasoline","K08 BMW","Illumination","Lamp_LED","LH_230B","LH_660A","Logger_4G","NM20_74","NM20_76","NP20_76","NP30_25","NP30_74","NP30_76","NQ30_76","P_202","P_33","Power Supply series-2","PS_144","PS_96","Relay_12step","Relay_14step","Relay_16step","Relay_4step","Relay_6step","Relay_8step","Relay_Card 96","Renault","Renault-melexis","RH_230B","RH660A","S106 Main","S201 bezel","Sensor","Sensor_2_in_1","Sensor_3_in_1","SG_1","Truenat","Testing","TVS D33","VI","Volvo"];
+let mainTypes = ["AP30_11","AP30_13","AP30_25","AQ30_11","AW_30","Bajaj_ETB","BMW","BW_30","BMW K03","BMW K2X DX","BMW K2X SX","Controller series-2","Controller_144","Controller_96","D1_100","D1_32","D1_80","D3_100","D3_50","D3_62.5","D3_80","D4 Main Board","DAQ Series-2","Daughter Board","Diesel","Gasoline","K08 BMW","Illumination","Lamp_LED","LH_230B","LH_660A","Logger_4G","NM20_74","NM20_76","NP20_76","NP30_25","NP30_74","NP30_76","NQ30_76","P_202","P_33","Power Supply series-2","PS_144","PS_96","Relay_12step","Relay_14step","Relay_16step","Relay_4step","Relay_6step","Relay_8step","Relay_Card 96","Renault","Renault-melexis","RH_230B","RH660A","S106 Main","S201 bezel","Sensor","Sensor_2_in_1","Sensor_3_in_1","SG_1","Truenat","Testing","TVS D33","Thyristor","VI","Volvo"];
+let smtCaliber = ["1.1 bot","1.1 top","230B LH Bot","230B LH Top","230B RH Bot","230B RH Top","660A LH Top","660A LH Bot","660A RH Top","660A RH Bot","AP30","AP30_11","AP30_13","AP30_25","AP30_33","Ap30_31","AQ30_11","AW_30","Bajaj_ETB","BMW","BW_30","Controller 144x144 Bot","Controller 144x144 Top","Controller 96x96 Bot","Controller 96x96 Top","Controller Series-2 Bot","Controller Series-2 Top","D1 100% Top","D1 32% Top","D1 62.5% Top","D1 Bot","D1_Bot","D3 100% Bot","D3 100% Top","D3 50% Bot","D3 50% Top","D3 62.5% Bot","D3 62.55 Top","D3 80% Bot","D3 80% Top","DAQ Series-2","D5 Daughter Board","Diesel","Gasoline","Illumination Board Bot","Illumination Board Top","Lamp_LED_Top","Lamp_LED_Bot","Logger4G_bot","Logger4G_top","LTCC_placement","Neutral_4P","NM20","NM20_76","NP20_76","NP30_76","P_202","P_33","PCB assy","Power Supply series-2","Power Supply series-2 Bot","Power Supply series-2 Top","Power Supply 96x96 Bot","Power Supply 96x96 Top","PS_144","Renault","Renault-melexis","RTD_placement","S106 Main","s201 bezel_Bot","s201 bezel_top","Sensor","Sensor Board","Sensor_3_in_1","SG_1","Thyristor","Volvo"];
+let AoiAOI_line = ["AOI 1","AOI 2","Yestech"];
+let AoiProducts = ["APFC","Danlaw","Dellorto","Dura","Emerald","IJL230B","IJL660A","Kongsberg","LEDs","Molbio","Neutral_4P","S3RP","Tyco"];
+let AoiCaliber = ["1.1 bot","1.1 top","230B LH Bot","230B LH Top","230B RH Bot","230B RH Top","660A LH Top","660A LH Bot","660A RH Top","660A RH Bot","AP30","AP30_11","AP30_13","AP30_25","AP30_33","Ap30_31","AQ30_11","AW_30","Bajaj_ETB","BMW","BW_30","Controller 144x144 Bot","Controller 144x144 Top","Controller 96x96 Bot","Controller 96x96 Top","Controller Series-2 Bot","Controller Series-2 Top","D1 100% Top","D1 32% Top","D1 62.5% Top","D1 Bot","D1_Bot","D3 100% Bot","D3 100% Top","D3 50% Bot","D3 50% Top","D3 62.5% Bot","D3 62.55 Top","D3 80% Bot","D3 80% Top","DAQ Series-2","D5 Daughter Board","Diesel","Gasoline","Illumination Board Bot","Illumination Board Top","Lamp_LED_Top","Lamp_LED_Bot","Logger4G_bot","Logger4G_top","LTCC_placement","Neutral_4P","NM20","NM20_76","NP20_76","NP30_76","P_202","P_33","PCB assy","Power Supply series-2","Power Supply series-2 Bot","Power Supply series-2 Top","Power Supply 96x96 Bot","Power Supply 96x96 Top","PS_144","Renault","Renault-melexis","RTD_placement","S106 Main","s201 bezel_Bot","s201 bezel_top","Sensor","Sensor Board","Sensor_3_in_1","SG_1","Thyristor","Volvo"];
 
   const sheet = req.body.SHEET;
   let sheetFilterOptions;
@@ -248,10 +255,17 @@ let smtProducts = ["APFC","Danlaw","Dellorto","Dura","Emerald","IJL660A","KA","L
     sheetNo:sheetNo,
     sheet:sheet,
     mainProducts:mainProducts,
+    mainTypes:mainTypes,
+    mainActivities:mainActivities,
     otherProducts:otherProducts,
     otherActivities:otherActivities,
+    otherTypes:otherTypes,
     smtLines:smtLines,
-    smtProducts:smtProducts
+    smtProducts:smtProducts,
+    smtCaliber:smtCaliber,
+    AoiAOI_line:AoiAOI_line,
+    AoiProducts:AoiProducts,
+    AoiCaliber:AoiCaliber
   })
 });
 

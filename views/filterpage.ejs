@@ -63,9 +63,20 @@
             </select>
           <%} else if (sheet=="Assembly_Others") { %>
             <select name="four" id="myInput4" placeholder="Enter text" disabled>
-
               <%for (let i = 0; i <otherTypes.length; i++) {%>
             <option value="<%=otherTypes[i]%>"><%=otherTypes[i]%></option>         
+              <%}%>
+            </select>
+          <%} else if (sheet=="AOI") { %>
+            <select name="four" id="myInput4" placeholder="Enter text" disabled>
+              <%for (let i = 0; i <AoiAOI_line.length; i++) {%>
+            <option value="<%=AoiAOI_line[i]%>"><%=AoiAOI_line[i]%></option>         
+              <%}%>
+            </select>  
+          <%} else if (sheet=="Assembly_Main") { %>
+            <select name="four" id="myInput4" placeholder="Enter text" disabled>
+              <%for (let i = 0; i <mainTypes.length; i++) {%>
+            <option value="<%=mainTypes[i]%>"><%=mainTypes[i]%></option>         
               <%}%>
             </select>
          <% } else {%>
@@ -93,6 +104,18 @@
           <option value="<%=smtProducts[i]%>"><%=smtProducts[i]%></option>         
             <%}%>
           </select>
+         <% } else if (sheet=="Assembly_Main") { %>
+          <select name="five" id="myInput5" placeholder="Enter text" disabled>
+            <%for (let i = 0; i <mainActivities.length; i++) {%>
+          <option value="<%=mainActivities[i]%>"><%=mainActivities[i]%></option>         
+            <%}%>
+          </select> 
+         <% } else if (sheet=="AOI") { %>
+          <select name="five" id="myInput5" placeholder="Enter text" disabled>
+            <%for (let i = 0; i <AoiProducts.length; i++) {%>
+          <option value="<%=AoiProducts[i]%>"><%=AoiProducts[i]%></option>         
+            <%}%>
+          </select> 
          <%} else {%>
           <input
           name="five"
@@ -105,6 +128,19 @@
         <li class="list-group-item">
           <input type="hidden" name="hid6" value="<%=sheetFilterOptions[5]%>">
           <label> <input type="checkbox" id="myCheckbox6" /> <%=sheetFilterName[5]%>: </label>
+           <% if (sheet=="AOI") { %>
+            <select name="six" id="myInput6" placeholder="Enter text" disabled>
+              <%for (let i = 0; i <AoiCaliber.length; i++) {%>
+            <option value="<%=AoiCaliber[i]%>"><%=AoiCaliber[i]%></option>         
+              <%}%>
+            </select>
+           <% } else if (sheet=="SMT") { %>
+            <select name="six" id="myInput6" placeholder="Enter text" disabled>
+              <%for (let i = 0; i <smtCaliber.length; i++) {%>
+            <option value="<%=smtCaliber[i]%>"><%=smtCaliber[i]%></option>         
+              <%}%>
+            </select> 
+             <%} else {%>
           <input
             name="six"
             type="text"
@@ -112,6 +148,7 @@
             placeholder="Enter text"
             disabled
           />
+          <% }  %>
         </li>
       </ul>
       <input type="hidden" name="sheetNumber" value="<%=sheetNo%>">
